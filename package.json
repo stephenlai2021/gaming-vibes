@@ -1,0 +1,17 @@
+{
+  "name": "gaming-vibes",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "push": "git add . && git commit -m commit && git push origin master"
+  },
+  "dependencies": {
+    "netlify-identity-widget": "^1.9.1",
+    "next": "10.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  }
+}
