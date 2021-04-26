@@ -28,6 +28,7 @@ nav {
 }
 nav h1 {
   margin-left: 10px;
+  margin-right: auto;
 }
 nav ul {
   margin-left: auto;
@@ -39,7 +40,7 @@ nav li {
   margin-left: 16px;
 }
 nav li.btn {
-  padding: 10px 16px;
+  padding: 5px 8px;
   border: 2px solid var(--primary);
   border-radius: 30px;
   font-weight: 600;
@@ -54,4 +55,22 @@ nav li.btn:hover {
 /* banner */
 .banner img {
   border-radius: 6px;
+}
+
+/* navbar - mobile */
+.mobile-nav {
+  display: none;
+}
+.MuiListItem-button.btn {
+  color: var(--primary);
+}
+
+/* rwd */
+@media (max-width: 630px) {
+  nav ul {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+  }
 }
