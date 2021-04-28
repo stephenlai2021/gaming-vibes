@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import AuthContext from "../stores/authContext";
 
 // export const getStaticProps = async () => {
 //   const res = await fetch(
@@ -16,32 +17,39 @@ import { useEffect, useState } from "react";
 
 // export default function Guides({ mario }) {
 export default function Guides() {
-  const [mario, setMario] = useState(null);
   const [guides, setGuides] = useState(null);
+  const { user, authReady } = useContext(AuthContext);
+
+  // console.log(user.token.access_token)
 
   useEffect(async () => {
-    const res = await fetch(
-      // "http://localhost:8888/.netlify/functions/supermario"
-      "http://localhost:8888/.netlify/functions/guides"
-    );
-    const data = await res.json();
-    console.log(data);
-    // setMario(data);
-    setGuides(data)
-  }, []);
+    if (authReady) {
+      const res = await fetch("/.netlify/functions/guides", user && {
+        headers: {
+          Authorization: "Bearer " + user.token.access_token,
+        },
+      });
+      const data = await res.json();
+      console.log(data)
+      setGuides(data);
+    }
+  }, [user, authReady]);
+
+  // if (!guides) {
+  //   return (
+  //      <div>Ooops, you are not logged in yet!</div>
+  //   )
+  // }
 
   return (
     <div className="guides">
       <h2>All Guides</h2>
-      {/* {mario && (
-        <div>
-          <p>Name: {mario.name}</p>
-          <p>Age: {mario.age}</p>
-          <p>Job: {mario.job}</p>
-        </div>
-      )} */}
 
-      {/* {guides && guides.map(guide => (
+      {/* {!user && (
+        <div>Ooops, you are not logged in yet</div>
+      )}
+
+      {user && guides && guides.map(guide => (
         <div key={guide.id}>
           <p>Title: { guide.title }</p>
           <p>Author: { guide.author }</p>
