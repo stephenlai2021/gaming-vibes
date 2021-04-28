@@ -42,7 +42,7 @@ export default function Navbar() {
               </li>
             )}
           </ul>
-        )}
+        )} 
 
         {authReady && <MobileNav />}
       </nav>
