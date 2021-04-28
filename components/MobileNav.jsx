@@ -4,6 +4,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Link from "next/link";
 import AuthContext from "../stores/authContext";
 import { useRouter } from "next/router";
+import { motion } from 'framer-motion'
 
 const MobileNav = () => {
   const router = useRouter();
@@ -52,6 +53,7 @@ const MobileNav = () => {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        className="mobile-menu"
       >
         <MenuItem onClick={handleHomeRoute}>Home</MenuItem>
         <MenuItem onClick={handleGuidesRoute}>Guides</MenuItem>

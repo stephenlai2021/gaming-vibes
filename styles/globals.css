@@ -58,7 +58,8 @@ nav li.btn:hover {
 }
 
 /* navbar - mobile */
-.mobile-nav {
+.mobile-nav,
+.mobile-menu {
   display: none;
 }
 .MuiListItem-button.btn {
@@ -70,7 +71,8 @@ nav li.btn:hover {
   nav ul {
     display: none;
   }
-  .mobile-nav {
+  .mobile-nav,
+  .mobile-menu {
     display: block;
   }
 }
