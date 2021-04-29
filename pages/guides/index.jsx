@@ -46,7 +46,7 @@ export default function Guides() {
           </div>
         )}
 
-        {!error && guides &&
+        {guides &&
           guides.map((guide) => (
             <div key={guide.id} className="card">
               <Link href={`/guides/${guide.id}`}>
