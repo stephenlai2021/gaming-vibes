@@ -3,14 +3,20 @@ import Image from "next/image";
 import { useContext, useEffect } from "react";
 import AuthContext from "../stores/authContext";
 import MobileNav from "./MobileNav";
+import { useRouter } from 'next/router'
 
 export default function Navbar() {
   const { user, login, logout, authReady } = useContext(AuthContext);
   console.log(user);
 
-  // useEffect(() => {
-  //   window.addEventListener('resize',)
-  // }, [])
+  const router = useRouter()
+
+  const handleClick = () => {
+    if (!user) {
+      login()
+    }
+    router.push('/guides')
+  }
 
   return (
     <div className="container">
@@ -25,11 +31,15 @@ export default function Navbar() {
                 <a>Home</a>
               </Link>
             </li>
-            <li>
+
+            {/* <li>
               <Link href="/guides">
                 <a>Guides</a>
               </Link>
-            </li>
+            </li> */}
+
+            <li onClick={handleClick}>Guides</li>
+
             {!user && (
               <li onClick={login} className="btn">
                 Login/Signup
@@ -42,7 +52,7 @@ export default function Navbar() {
               </li>
             )}
           </ul>
-        )} 
+        )}
 
         {authReady && <MobileNav />}
       </nav>
