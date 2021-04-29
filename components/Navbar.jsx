@@ -32,13 +32,13 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* <li>
+            <li>
               <Link href="/guides">
                 <a>Guides</a>
               </Link>
-            </li> */}
+            </li>
 
-            <li onClick={handleClick}>Guides</li>
+            {/* <li onClick={handleClick}>Guides</li> */}
 
             {!user && (
               <li onClick={login} className="btn">

@@ -40,11 +40,11 @@ export default function Guides() {
 
         {!authReady && <div>Loading...</div>}
 
-        {/* {error && (
+        {error && (
           <div className="error">
             <p>{error}</p>
           </div>
-        )} */}
+        )}
 
         {guides &&
           guides.map((guide) => (

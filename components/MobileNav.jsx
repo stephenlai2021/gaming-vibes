@@ -27,11 +27,11 @@ const MobileNav = () => {
   };
   const handleGuidesRoute = () => {
     setAnchorEl(null);
-    // router.push("/guides");
-     if (!user) {
-       login();
-     }
-     router.push("/guides");
+    router.push("/guides");
+    //  if (!user) {
+    //    login();
+    //  }
+    //  router.push("/guides");
   };
   const handleLogin = () => {
     setAnchorEl(null);
